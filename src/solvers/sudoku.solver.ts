@@ -86,16 +86,12 @@ function solveSudoku(board: string[][]): void {
 			emptyBoxIndex++;
 		} else {
 			
-			// find the previous box that has available values
+			// Go to the previous box and change the valueIndex
+			
+			// If all the values have transpired then go to the previous box and repeat
 
-			let previousBox = emptyBoxes[emptyBoxIndex - 1]
-			console.error(`No available values at empty box ${currentEmptyBox.x}, ${currentEmptyBox.y}. Going back`);
-			emptyBoxIndex--;
-			if (previousBox.valueIndex < previousBox.availableValues.length) {
-				previousBox.valueIndex++;
-			} else {
-				previousBox.valueIndex = 0;
-			}	
+			// Question: How do we know that we went through all the values?
+			// Possible Answer: If the valueIndex === availableValues.length
 		}
 
 		console.log(board)
